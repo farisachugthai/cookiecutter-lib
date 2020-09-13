@@ -2,18 +2,15 @@
 
 Console script for {{cookiecutter.project_slug}}.
 """
-
-import click
-import sys
+{%- if cookiecutter.command_line_interface|lower == 'argparse' %}
 import argparse
-{%- if cookiecutter.command_line_interface|lower == 'argparse' % }
-{%- endif % }
-{%- if cookiecutter.command_line_interface|lower == 'click' % }
-{%- endif % }
+{%- endif %}
+import sys
+{%- if cookiecutter.command_line_interface|lower == 'click' %}
+import click
+{%- endif %}
 
-{% if cookiecutter.command_line_interface|lower == 'click' % }
-
-
+{% if cookiecutter.command_line_interface|lower == 'click' %}
 @click.command()
 def main(args=None):
     """Console script for {{cookiecutter.project_slug}}."""
@@ -21,12 +18,8 @@ def main(args=None):
                "{{cookiecutter.project_slug}}.cli.main")
     click.echo("See click documentation at https://click.palletsprojects.com/")
     return 0
-
-
-{%- endif % }
-{%- if cookiecutter.command_line_interface|lower == 'argparse' % }
-
-
+{%- endif %}
+{%- if cookiecutter.command_line_interface|lower == 'argparse' %}
 def main():
     """Console script for {{cookiecutter.project_slug}}."""
     parser = argparse.ArgumentParser()
@@ -37,10 +30,10 @@ def main():
     print("Replace this message by putting your code into "
           "{{cookiecutter.project_slug}}.cli.main")
     return 0
-
-
-{%- endif % }
+{%- endif %}
 
 
 if __name__ == "__main__":
     sys.exit(main())  # pragma: no cover
+
+# Vim: set ft=jinja.python:

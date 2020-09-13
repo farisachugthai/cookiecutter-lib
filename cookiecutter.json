@@ -1,9 +1,10 @@
 {
+  "project_name": "Boilerplate",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "directory_name": "{{ cookiecutter.project_slug }}",
   "full_name": "Faris A Chugthai",
   "email": "farischugthai@gmail.com",
   "github_username": "farisachugthai",
-  "project_name": "Boilerplate",
-  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
   "pypi_username": "{{ cookiecutter.github_username }}",
   "version": "0.1.0",

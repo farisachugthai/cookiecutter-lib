@@ -5,19 +5,19 @@ from setuptools import setup, find_packages
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
-requirements = [{%- if cookiecutter.command_line_interface|lower == 'click' % }'Click>=7.0', {%- endif % } ]
+{# requirements = [{%- if cookiecutter.command_line_interface|lower == 'click' % }'Click>=7.0', {%- endif %} ]
 
-setup_requirements = [{%- if cookiecutter.use_pytest == 'y' % }'pytest-runner', {%- endif % } ]
+setup_requirements = [{%- if cookiecutter.use_pytest == 'y' % }'pytest-runner', {%- endif% } ]
 
-test_requirements = [{%- if cookiecutter.use_pytest == 'y' % }'pytest>=3', {%- endif % } ]
-
-{% - set license_classifiers = {
+test_requirements = [{%- if cookiecutter.use_pytest == 'y' % }'pytest>=3', {%- endif% } ]
+#}
+{%- set license_classifiers = {
     'MIT license': 'License :: OSI Approved :: MIT License',
     'BSD license': 'License :: OSI Approved :: BSD License',
     'ISC license': 'License :: OSI Approved :: ISC License (ISCL)',
     'Apache Software License 2.0': 'License :: OSI Approved :: Apache Software License',
     'GNU General Public License v3': 'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'
-} % }
+} %}
 
 setup(
     author="{{ cookiecutter.full_name.replace('\"', '\\\"') }}",
@@ -37,13 +37,13 @@ setup(
         'Programming Language :: Python :: 3.8',
     ],
     description="{{ cookiecutter.project_short_description }}",
-    {%- if 'no' not in cookiecutter.command_line_interface|lower % }
+    {%- if 'no' not in cookiecutter.command_line_interface|lower %}
     entry_points={
         'console_scripts': [
             '{{ cookiecutter.project_slug }}={{ cookiecutter.project_slug }}.core:main',
         ],
     },
-    {%- endif % }
+    {%- endif %}
     install_requires=requirements,
     {%- if cookiecutter.open_source_license in license_classifiers %}
     license="{{ cookiecutter.open_source_license }}",
@@ -61,3 +61,5 @@ setup(
     version='{{ cookiecutter.version }}',
     zip_safe=False,
 )
+
+# Vim: set ft=jinja:python:

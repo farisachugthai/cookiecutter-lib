@@ -1,17 +1,18 @@
 # !/usr/bin/env python
+from setuptools import setup
 
-from distutils.core import setup
 setup(
-    name='cookiecutter-pypackage',
+    name='cookiecutter-lib',
     packages=[],
     version='0.1.0',
-    description='Cookiecutter template for a Python package',
-    author='Audrey Roy Greenfeld',
-    license='BSD',
-    author_email='aroy@alum.mit.edu',
-    url='https://github.com/audreyr/cookiecutter-pypackage',
+    description='Cookiecutter template for a Python lib',
+    author='Faris A Chugthai',
+    license='MIT',
+    author_email='farischugthai@gmail.com',
+    url='https://github.com/farisachugthai/cookiecutter_lib',
     keywords=['cookiecutter', 'template', 'package', ],
     python_requires='>=3.5',
+    install_requires=["cookiecutter"],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',
