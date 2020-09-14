@@ -40,7 +40,7 @@ setup(
         ],
     },
     {%- endif %}
-    install_requires=requirements,
+    {# install_requires=requirements, #}
     license="{{ cookiecutter.open_source_license }}",
     include_package_data=True,
     keywords='{{ cookiecutter.project_slug }}',
@@ -50,7 +50,7 @@ setup(
         '{{ cookiecutter.project_slug }}', '{{ cookiecutter.project_slug }}.*'
     ]),
     test_suite='tests',
-    tests_require=test_requirements,
+    {# tests_require=test_requirements,#}
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}',
     version='{{ cookiecutter.version }}',
     zip_safe=False,
