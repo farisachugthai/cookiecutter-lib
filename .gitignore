@@ -103,5 +103,6 @@ cookiecutter-pypackage-env/
 
 # IDE settings
 .vscode/
+
 tags
 tags.temp

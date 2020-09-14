@@ -2,15 +2,15 @@
   "project_name": "Boilerplate",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "directory_name": "{{ cookiecutter.project_slug }}",
+  "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
   "full_name": "Faris A Chugthai",
   "email": "farischugthai@gmail.com",
   "github_username": "farisachugthai",
-  "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
   "pypi_username": "{{ cookiecutter.github_username }}",
   "version": "0.1.0",
   "use_pytest": "y",
   "use_pypi_deployment_with_travis": "n",
   "add_pyup_badge": "y",
-  "command_line_interface": ["Click", "Argparse", "No command-line interface"],
+  "command_line_interface": ["Argparse", "Click", "No command-line interface"],
   "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"]
 }
