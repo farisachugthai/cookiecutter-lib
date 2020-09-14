@@ -1,5 +1,5 @@
 Welcome to {{ cookiecutter.project_name }}'s documentation!
-======================================
+===========================================================
 
 .. include:: ../README.rst
 
@@ -9,7 +9,6 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
 
    installation
    usage
-   modules
    contributing
    history
 
