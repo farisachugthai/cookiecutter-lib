@@ -7,6 +7,28 @@ Cookiecutter for python libraries.
 This is a substantially more fully featured cookiecutter than many other
 popular cookiecutters.
 
+**Automatically powerful**
+
+Makefile to run everything
+================================
+
+``make install``
+
+Runs ``git init`` with the provided templates at
+`<./{{cookiecutter.directory_name}}/template>`_ and installs hooks for varying
+git actions.
+
+By and large the `hooks <./{{cookiecutter.directory_name}}/template/hooks>`_
+run ctags on commits and checkouts.
+
+.. todo::
+
+   Add in some sort of automation to increase the ``__version__`` in the
+   ``__init__.py`` while also running ``git tag new_version``.
+
+Then creates a virtual environment with a prompt using the project's slug,
+builds the project using setuptools and installs it using pip's editable mode.
+
 
 Optional but complete library integration
 =========================================
