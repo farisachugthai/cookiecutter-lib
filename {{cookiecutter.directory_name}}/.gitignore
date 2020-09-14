@@ -108,6 +108,7 @@ ENV/
 
 # IDE settings
 **.idea/*
+.vscode/tags
 
 # Local files
 ###############

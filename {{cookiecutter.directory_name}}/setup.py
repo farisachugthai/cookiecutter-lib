@@ -7,8 +7,6 @@ with open('README.rst') as readme_file:
 
 {# requirements = [{%- if cookiecutter.command_line_interface|lower == 'click' % }'Click>=7.0', {%- endif %} ]
 
-setup_requirements = [{%- if cookiecutter.use_pytest == 'y' % }'pytest-runner', {%- endif%} ]
-
 test_requirements = [{%- if cookiecutter.use_pytest == 'y' % }'pytest>=3', {%- endif%} ]
 #}
 {%- set license_classifiers = {
@@ -22,7 +20,6 @@ test_requirements = [{%- if cookiecutter.use_pytest == 'y' % }'pytest>=3', {%- e
 setup(
     author="{{ cookiecutter.full_name.replace('\"', '\\\"') }}",
     author_email='{{ cookiecutter.email }}',
-    python_requires='>=3.5',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -48,13 +45,11 @@ setup(
     {%- if cookiecutter.open_source_license in license_classifiers %}
     license="{{ cookiecutter.open_source_license }}",
     {%- endif %}
-    long_description=readme,
     include_package_data=True,
     keywords='{{ cookiecutter.project_slug }}',
     name='{{ cookiecutter.project_slug }}',
     packages=find_packages(
         include=['{{ cookiecutter.project_slug }}', '{{ cookiecutter.project_slug }}.*']),
-    setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}',
