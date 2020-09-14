@@ -5,21 +5,21 @@ from setuptools import setup, find_packages
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
-{#
-For some reason these 2 parts aren't working at ALL
-
 requirements = [
-    {%- if cookiecutter.command_line_interface|lower == 'click' % }'Click>=7.0', {%- endif %}
+    {%- if cookiecutter.command_line_interface|lower == 'click' %}
+    'Click>=7.0',
+    {%- endif %}
 ]
 
 test_requirements = [
-    {%- if cookiecutter.use_pytest == 'y' % }'pytest>=3', {%- endif%}
+    {%- if cookiecutter.use_pytest == 'y' %}
+    'pytest>=3',
+    {%- endif %}
 ]
 
-This works but I removed it. Keep note of this though! It would be nice to have a template
+{# This works but I removed it. Keep note of this though! It would be nice to have a template
 file or something where we can set this variable in basically any jinja template I need
-to in the repository.
-#}
+to in the repository. #}
 
 {%- set license_classifiers = {
     'MIT license': 'License :: OSI Approved :: MIT License',
@@ -40,17 +40,17 @@ setup(
         ],
     },
     {%- endif %}
-    {# install_requires=requirements, #}
+    install_requires=requirements,
     license="{{ cookiecutter.open_source_license }}",
     include_package_data=True,
     keywords='{{ cookiecutter.project_slug }}',
     name='{{ cookiecutter.project_slug }}',
     packages=find_packages(
         include=[
-        '{{ cookiecutter.project_slug }}', '{{ cookiecutter.project_slug }}.*'
+        '{{ cookiecutter.project_slug }}',
     ]),
     test_suite='tests',
-    {# tests_require=test_requirements,#}
+    tests_require=test_requirements,
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}',
     version='{{ cookiecutter.version }}',
     zip_safe=False,
