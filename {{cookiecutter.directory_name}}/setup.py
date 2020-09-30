@@ -17,6 +17,16 @@ test_requirements = [
     {%- endif %}
 ]
 
+docs_requires = [
+    "sphinx",
+]
+
+extras_requires = {
+    "test": test_requirements,
+    "docs": docs_requires,
+    "dev": test_requirements+docs_requires,
+}
+
 {# This works but I removed it. Keep note of this though! It would be nice to have a template
 file or something where we can set this variable in basically any jinja template I need
 to in the repository. #}
@@ -40,6 +50,7 @@ setup(
         ],
     },
     {%- endif %}
+    extras_requires=extras_requires,
     install_requires=requirements,
     license="{{ cookiecutter.open_source_license }}",
     include_package_data=True,
