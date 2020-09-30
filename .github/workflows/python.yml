@@ -35,9 +35,9 @@ jobs:
       - name: Install dependencies
         run: |
           cd "$(git rev-parse --show-toplevel)"
-          python setup.py build
           # pip install -r tools/requirements.txt
           pip install -U wheel pip setuptools
+          python setup.py build
           pip install -e .[test]
       - name: Lint with flake8
         run: |
@@ -49,6 +49,7 @@ jobs:
           flake8 . --exit-zero --count --max-complexity=20 --max-line-length=127 --statistics
       - name: Test with pytest
         run: |
+          pip install -U pytest pytest-cookies
           pytest
 
 ...

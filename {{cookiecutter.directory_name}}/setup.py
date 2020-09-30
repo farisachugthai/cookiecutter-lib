@@ -50,7 +50,7 @@ setup(
         ],
     },
     {%- endif %}
-    extras_requires=extras_requires,
+    extras_require=extras_requires,
     install_requires=requirements,
     license="{{ cookiecutter.open_source_license }}",
     include_package_data=True,
