@@ -1,5 +1,11 @@
 {
   "restructuredtext.confPath": "${workspaceFolder}\\{{cookiecutter.directory_name}}\\docs",
   "python.formatting.provider": "none",
-  "python.pythonPath": ".venv\\Scripts\\python.exe"
+  "python.pythonPath": ".venv\\Scripts\\python.exe",
+  "python.testing.pytestArgs": [
+    "."
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.nosetestsEnabled": false,
+  "python.testing.pytestEnabled": true
 }

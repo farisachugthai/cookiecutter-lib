@@ -165,8 +165,10 @@ def test_bake_without_travis_pypi_setup(cookies):
         cookies,
         extra_context={'use_pypi_deployment_with_travis': 'n'}
     ) as result:
+        with open(result.project.join(".travis.yml")) as f:
+            travis_yaml = f.read()
         result_travis_config = yaml.load(
-            result.project.join(".travis.yml").open(),
+            travis_yaml,
             Loader=yaml.FullLoader
         )
         assert "deploy" not in result_travis_config

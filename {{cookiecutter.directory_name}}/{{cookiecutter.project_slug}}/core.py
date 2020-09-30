@@ -8,10 +8,7 @@ import argparse
 import logging
 import sys
 
-{# So this will unfortunately raise if left in because it'll require
-installation from the setup script. Ugh.
-from . import __version__
-#}
+# from . import __version__
 {%- if cookiecutter.command_line_interface|lower == 'click' %}
 import click
 {%- endif %}
@@ -64,7 +61,7 @@ def _parse_args():
         help="Shorthand to enable verbose logging and increase level to `debug`.",
     )
 
-    {# parser.add_argument("--version", action="version", version=__version__) #}
+    # parser.add_argument("--version", action="version", version=__version__)
 
     print("Arguments: " + str(args._))
     print("Replace this message by putting your code into "
