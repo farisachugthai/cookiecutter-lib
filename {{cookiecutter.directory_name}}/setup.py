@@ -64,7 +64,6 @@ setup(
     tests_require=test_requirements,
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}',
     version='{{ cookiecutter.version }}',
-    zip_safe=False,
 )
 
 # Vim: set ft=jinja:python:

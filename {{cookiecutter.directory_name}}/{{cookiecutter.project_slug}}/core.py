@@ -8,12 +8,13 @@ import argparse
 import logging
 import sys
 
+# Install using pip to uncomment this and the parser argument `__version__`.
 # from . import __version__
+
 {%- if cookiecutter.command_line_interface|lower == 'click' %}
 import click
-{%- endif %}
 
-{% if cookiecutter.command_line_interface|lower == 'click' %}
+
 @click.command()
 def main(args=None):
     """Console script for {{cookiecutter.project_slug}}."""
@@ -21,8 +22,12 @@ def main(args=None):
                "{{cookiecutter.project_slug}}.cli.main")
     click.echo("See click documentation at https://click.palletsprojects.com/")
     return 0
+
+
 {%- endif %}
 {%- if cookiecutter.command_line_interface|lower == 'argparse' %}
+
+
 def _parse_args():
     """Parse arguments given by the user.
 
@@ -50,8 +55,9 @@ def _parse_args():
         "-ll",
         "--log-level",
         dest="log_level",
-        choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
-        help="Log level. If logging is specified with '-l', defaults to INFO.",
+        choices=[10, 20, 30, 40, 50],
+        type=int,
+        help="Log level. If logging is specified with '-l', defaults to 30.",
     )
 
     parser.add_argument(
@@ -63,28 +69,26 @@ def _parse_args():
 
     # parser.add_argument("--version", action="version", version=__version__)
 
-    print("Arguments: " + str(args._))
-    print("Replace this message by putting your code into "
-          "{{cookiecutter.project_slug}}.cli.main")
-
     if len(sys.argv[1:]) == 0:
         parser.print_help()
-        # This is actually annoying
-        # raise argparse.ArgumentError(None, "Args not provided.")
         sys.exit()
 
     args = parser.parse_args()
 
+    print("Arguments: " + str(args._))
+    print("Replace this message by putting your code into "
+          "{{cookiecutter.project_slug}}.cli.main")
+
     # handle a few of our args
     if args.log_level is None:
         # no LOG_LEVEL specified but -l was specified
-        if hasattr(args, "log"):
-            LOG_LEVEL = "logging.WARNING"
+        if args.log is not None:
+            LOG_LEVEL = logging.WARNING
         else:
             # Don't log
             LOG_LEVEL = 99
     else:
-        LOG_LEVEL = "logging." + args.log_level
+        LOG_LEVEL = args.log_level
 
     logging.basicConfig(level=LOG_LEVEL)
 
@@ -93,7 +97,9 @@ def _parse_args():
 
 def main():
     """Console script for {{cookiecutter.project_slug}}."""
-    args =_parse_args()
+    args = _parse_args()
+
+
 {%- endif %}
 
 
