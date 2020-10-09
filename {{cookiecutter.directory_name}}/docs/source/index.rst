@@ -1,7 +1,7 @@
 Welcome to {{ cookiecutter.project_name }}'s documentation!
 ===========================================================
 
-.. include:: ../README.rst
+.. include:: ../../README.rst
 
 .. toctree::
    :maxdepth: 2
